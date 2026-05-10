@@ -7,6 +7,20 @@ from strands.models.ollama import OllamaModel
 #FIXME: En un proyecto real, cargaríamos los vinos desde una base de datos o API, no desde un archivo JSON local. Esto es solo para fines de demostración.
 VINOS = json.loads(Path("data/vinos.json").read_text())
 
+#FIXME: En un proyecto real, esta información podría ser más detallada y estar almacenada en una base de datos o sistema de conocimiento, no en un diccionario estático. Esto es solo para fines de demostración.
+MARIDAJES = {
+        "mariscos": "Sauvignon Blanc, Chardonnay sin roble, o un Pinot Noir ligero.",
+        "pescado": "Sauvignon Blanc, Riesling, o Chardonnay.",
+        "asado": "Cabernet Sauvignon, Carménère, o Malbec.",
+        "carnes rojas": "Cabernet Sauvignon, Carménère, Syrah, o blends tintos.",
+        "cerdo": "Pinot Noir, Merlot, o Carménère.",
+        "pollo": "Chardonnay, Pinot Noir, o Viognier.",
+        "pasta": "Depende de la salsa: tomate → Carménère; crema → Chardonnay; pesto → Sauvignon Blanc.",
+        "queso": "Tintos maduros para quesos duros; Sauvignon Blanc para queso de cabra.",
+        "ensalada": "Sauvignon Blanc o Riesling.",
+        "chocolate": "Carménère, Syrah, o un blend tinto con notas de fruta madura.",
+    }
+
 SYSTEM_PROMPT = """
 Eres un sommelier experto en vinos.
 
@@ -40,6 +54,21 @@ def buscar_vinos(
         return "No encontré vinos con esos criterios. Intenta con otra región o cepa."
     return json.dumps(resultados[:5], ensure_ascii=False, indent=2)
 
+
+@tool
+def maridaje(plato: str, maridajes: dict = MARIDAJES) -> str:
+    """Dado un plato, retorna las cepas que mejor lo acompañan.
+
+    Args:
+        plato: El plato o tipo de comida (ej: mariscos, asado, pasta, queso).
+    """
+    plato_lower = plato.lower()
+    for clave, sugerencia in maridajes.items():
+        if clave in plato_lower:
+            return sugerencia
+    return f"Para '{plato}', prueba un tinto medio como Carménère o un blanco fresco como Sauvignon Blanc."
+
+
 def main():
     modelo = OllamaModel(
         host="http://localhost:11434",
@@ -49,6 +78,10 @@ def main():
     agente = Agent(
         model=modelo,
         system_prompt=SYSTEM_PROMPT,
+        tools=[
+            buscar_vinos,
+            maridaje,
+        ],
     )
 
     agente("¿Qué vino me recomiendas para una cena de mariscos?")
