@@ -49,6 +49,9 @@ def main():
     agente = Agent(
         model=modelo,
         system_prompt=SYSTEM_PROMPT,
+        tools=[
+            buscar_vinos
+        ],
     )
 
     agente("¿Qué vino me recomiendas para una cena de mariscos?")
