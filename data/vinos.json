@@ -1,0 +1,212 @@
+[
+  {
+    "nombre": "Casillero del Diablo Carménère Reserva",
+    "bodega": "Concha y Toro",
+    "cepa": "Carménère",
+    "region": "Valle de Rapel",
+    "notas": "Frutas rojas maduras, pimienta negra, toque de chocolate amargo"
+  },
+  {
+    "nombre": "Don Melchor Cabernet Sauvignon",
+    "bodega": "Concha y Toro",
+    "cepa": "Cabernet Sauvignon",
+    "region": "Valle del Maipo",
+    "notas": "Cassis, tabaco, cedro, taninos elegantes con final largo"
+  },
+  {
+    "nombre": "Clos Apalta",
+    "bodega": "Lapostolle",
+    "cepa": "Blend (Carménère, Cabernet Sauvignon, Merlot)",
+    "region": "Valle de Colchagua",
+    "notas": "Mora, ciruela, especias dulces, mineral, muy concentrado"
+  },
+  {
+    "nombre": "Almaviva",
+    "bodega": "Almaviva",
+    "cepa": "Blend (Cabernet Sauvignon, Carménère)",
+    "region": "Valle del Maipo",
+    "notas": "Frutos negros, grafito, violetas, estructura firme y elegante"
+  },
+  {
+    "nombre": "Montes Alpha Malbec",
+    "bodega": "Montes",
+    "cepa": "Malbec",
+    "region": "Valle de Colchagua",
+    "notas": "Ciruela madura, violetas, vainilla, taninos suaves"
+  },
+  {
+    "nombre": "Errazuriz Max Reserva Syrah",
+    "bodega": "Errazuriz",
+    "cepa": "Syrah",
+    "region": "Valle de Aconcagua",
+    "notas": "Pimienta negra, mora, aceitunas negras, ahumado"
+  },
+  {
+    "nombre": "Santa Rita Casa Real Cabernet Sauvignon",
+    "bodega": "Santa Rita",
+    "cepa": "Cabernet Sauvignon",
+    "region": "Valle del Maipo",
+    "notas": "Cassis, menta, eucalipto, taninos firmes y final persistente"
+  },
+  {
+    "nombre": "Undurraga T.H. Pinot Noir",
+    "bodega": "Undurraga",
+    "cepa": "Pinot Noir",
+    "region": "Valle de Leyda",
+    "notas": "Cereza fresca, frambuesa, tierra húmeda, acidez vibrante"
+  },
+  {
+    "nombre": "Cono Sur 20 Barrels Pinot Noir",
+    "bodega": "Cono Sur",
+    "cepa": "Pinot Noir",
+    "region": "Valle de Casablanca",
+    "notas": "Frutilla, clavo de olor, roble sutil, sedoso en boca"
+  },
+  {
+    "nombre": "Matetic Corralillo Sauvignon Blanc",
+    "bodega": "Matetic",
+    "cepa": "Sauvignon Blanc",
+    "region": "Valle de San Antonio",
+    "notas": "Pomelo, maracuyá, hierbas frescas, mineral y crujiente"
+  },
+  {
+    "nombre": "Casas del Bosque Reserva Sauvignon Blanc",
+    "bodega": "Casas del Bosque",
+    "cepa": "Sauvignon Blanc",
+    "region": "Valle de Casablanca",
+    "notas": "Lima, pasto recién cortado, espárrago, refrescante"
+  },
+  {
+    "nombre": "Viña Leyda Single Vineyard Sauvignon Blanc",
+    "bodega": "Viña Leyda",
+    "cepa": "Sauvignon Blanc",
+    "region": "Valle de Leyda",
+    "notas": "Toronja, jalapeño, flor de saúco, acidez eléctrica"
+  },
+  {
+    "nombre": "Montes Alpha Chardonnay",
+    "bodega": "Montes",
+    "cepa": "Chardonnay",
+    "region": "Valle de Casablanca",
+    "notas": "Piña, mantequilla, vainilla, roble bien integrado"
+  },
+  {
+    "nombre": "De Martino Legado Reserva Chardonnay",
+    "bodega": "De Martino",
+    "cepa": "Chardonnay",
+    "region": "Valle de Limarí",
+    "notas": "Durazno blanco, almendra, mineral calcáreo, fresco"
+  },
+  {
+    "nombre": "Concha y Toro Marqués de Casa Concha Carménère",
+    "bodega": "Concha y Toro",
+    "cepa": "Carménère",
+    "region": "Valle de Peumo",
+    "notas": "Pimiento rojo asado, mora, café, especias suaves"
+  },
+  {
+    "nombre": "Ventisquero Grey Glacier Carménère",
+    "bodega": "Ventisquero",
+    "cepa": "Carménère",
+    "region": "Valle de Colchagua",
+    "notas": "Frutas negras, pimienta verde, chocolate, taninos aterciopelados"
+  },
+  {
+    "nombre": "Pérez Cruz Reserva Limitada Cabernet Sauvignon",
+    "bodega": "Pérez Cruz",
+    "cepa": "Cabernet Sauvignon",
+    "region": "Valle del Maipo",
+    "notas": "Grosella negra, pimiento, grafito, estructura media"
+  },
+  {
+    "nombre": "Emiliana Coyam",
+    "bodega": "Emiliana",
+    "cepa": "Blend (Syrah, Carménère, Merlot)",
+    "region": "Valle de Colchagua",
+    "notas": "Mora, lavanda, pimienta, terroso, orgánico y biodinámico"
+  },
+  {
+    "nombre": "Viña Tarapacá Gran Reserva Merlot",
+    "bodega": "Tarapacá",
+    "cepa": "Merlot",
+    "region": "Valle del Maipo",
+    "notas": "Ciruela, cereza, chocolate con leche, suave y redondo"
+  },
+  {
+    "nombre": "Lapostolle Grand Selection Merlot",
+    "bodega": "Lapostolle",
+    "cepa": "Merlot",
+    "region": "Valle de Colchagua",
+    "notas": "Frambuesa, trufa, especias dulces, textura sedosa"
+  },
+  {
+    "nombre": "Arboleda Syrah",
+    "bodega": "Arboleda",
+    "cepa": "Syrah",
+    "region": "Valle de Aconcagua",
+    "notas": "Mora silvestre, pimienta blanca, tocino, final especiado"
+  },
+  {
+    "nombre": "Garcés Silva Amayna Pinot Noir",
+    "bodega": "Garcés Silva",
+    "cepa": "Pinot Noir",
+    "region": "Valle de San Antonio",
+    "notas": "Guinda, rosa, hongos, elegante y delicado"
+  },
+  {
+    "nombre": "Viña Mar Reserva Especial Riesling",
+    "bodega": "Viña Mar",
+    "cepa": "Riesling",
+    "region": "Valle de Casablanca",
+    "notas": "Durazno, flor de azahar, petróleo sutil, acidez brillante"
+  },
+  {
+    "nombre": "Miguel Torres Cordillera Carignan",
+    "bodega": "Miguel Torres",
+    "cepa": "Carignan",
+    "region": "Valle del Maule",
+    "notas": "Cereza ácida, hierbas mediterráneas, mineral, rústico"
+  },
+  {
+    "nombre": "Gillmore Vigno Carignan",
+    "bodega": "Gillmore",
+    "cepa": "Carignan",
+    "region": "Valle del Maule",
+    "notas": "Frutos rojos secos, tomillo, tierra, viñas viejas de secano"
+  },
+  {
+    "nombre": "Casa Silva Gran Reserva Viognier",
+    "bodega": "Casa Silva",
+    "cepa": "Viognier",
+    "region": "Valle de Colchagua",
+    "notas": "Damasco, jazmín, miel, textura oleosa y aromática"
+  },
+  {
+    "nombre": "Cousiño Macul Antiguas Reservas Cabernet Sauvignon",
+    "bodega": "Cousiño Macul",
+    "cepa": "Cabernet Sauvignon",
+    "region": "Valle del Maipo",
+    "notas": "Cassis, pimiento verde, tabaco, estilo clásico chileno"
+  },
+  {
+    "nombre": "Santa Carolina Reserva de Familia Pinot Noir",
+    "bodega": "Santa Carolina",
+    "cepa": "Pinot Noir",
+    "region": "Valle de Casablanca",
+    "notas": "Frambuesa, pimienta rosa, sotobosque, fresco y elegante"
+  },
+  {
+    "nombre": "Viña San Pedro 1865 Selected Vineyards Sauvignon Blanc",
+    "bodega": "San Pedro",
+    "cepa": "Sauvignon Blanc",
+    "region": "Valle de Leyda",
+    "notas": "Limón, hierbas, mineral salino, final largo y refrescante"
+  },
+  {
+    "nombre": "Viña Koyle Gran Reserva Cabernet Sauvignon",
+    "bodega": "Koyle",
+    "cepa": "Cabernet Sauvignon",
+    "region": "Valle de Colchagua",
+    "notas": "Mora, grafito, hierbas de montaña, biodinámico, fresco"
+  }
+]
