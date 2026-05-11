@@ -127,6 +127,15 @@ def main(
 
 
 if __name__ == "__main__":
-    _after_tool = False
-    prompt = input("👩‍💻 Prompt: ")
-    main(prompt)
+    try:
+        STOP = False
+        while STOP == False:
+            _after_tool = False
+            prompt = input("👩‍💻 Prompt: ")
+            if prompt.lower() in ["exit", "quit", "salir"]:
+                STOP = True
+                print("👋 ¡Hasta luego!")
+            else:
+                main(prompt)
+    except KeyboardInterrupt:
+        print("\n👋 ¡Hasta luego! (Abortado)")
