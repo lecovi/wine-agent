@@ -4,6 +4,7 @@ from pathlib import Path
 from strands import Agent, tool
 from strands.models.ollama import OllamaModel
 
+
 #FIXME: En un proyecto real, cargaríamos los vinos desde una base de datos o API, no desde un archivo JSON local. Esto es solo para fines de demostración.
 VINOS = json.loads(Path("data/vinos.json").read_text())
 
@@ -23,12 +24,18 @@ MARIDAJES = {
 
 SYSTEM_PROMPT = """
 Eres un sommelier experto en vinos.
+El usuario tiene una cava con 30 vinos.
 
 Tu rol:
 1. Recomendar vinos según la ocasión, comida o preferencia del usuario.
-2. Explicar brevemente por qué recomiendas cada vino.
-3. Responder siempre en español.
-4. Mantener las respuestas concisas — máximo 2-3 párrafos.
+2. Cuando el usuario mencione una comida, llamar maridaje para obtener las cepas apropiadas, elegir la primera cepa, y luego buscar_vinos con esa cepa.
+3. SIEMPRE usar la herramienta buscar_vinos para consultar la cava del usuario antes de recomendar.
+4. Basar tus recomendaciones en los datos reales de la cava del usuario, no en conocimiento general.
+5. Explicar brevemente por qué recomiendas cada vino (notas de cata, maridaje).
+6. Responder siempre en español.
+7. Mantener las respuestas concisas — máximo 2-3 párrafos.
+8. Si el usuario no proporciona suficiente información, haz preguntas para entender mejor sus gustos y necesidades.
+9. Si el usuario pide recomendaciones de otra cosa que no sean vinos, responde que solo puedes ayudar con recomendaciones de vinos y haz preguntas para redirigir la conversación hacia ese tema.
 """
 
 @tool
@@ -69,7 +76,27 @@ def maridaje(plato: str, maridajes: dict = MARIDAJES) -> str:
     return f"Para '{plato}', prueba un tinto medio como Carménère o un blanco fresco como Sauvignon Blanc."
 
 
-def main():
+def callback_handler(**kwargs):
+    global _after_tool
+    if "reasoningText" in kwargs:
+        print(f"💭 {kwargs['reasoningText']}", end="", flush=True)
+    if "data" in kwargs:
+        if _after_tool:
+            print("\n")
+            _after_tool = False
+        print(kwargs["data"], end="", flush=True)
+    if "current_tool_use" in kwargs:
+        _after_tool = True
+        t = kwargs["current_tool_use"]
+        if t.get("name"):
+            print(f"\n\n🔧 Herramienta: {t['name']}")
+        if t.get("input"):
+            print(f"   Parámetros: {t['input']}")
+
+
+def main(
+    prompt: str = None,
+):
     modelo = OllamaModel(
         host="http://localhost:11434",
         model_id="llama3.1",
@@ -77,6 +104,7 @@ def main():
 
     agente = Agent(
         model=modelo,
+        callback_handler=callback_handler,
         system_prompt=SYSTEM_PROMPT,
         tools=[
             buscar_vinos,
@@ -84,9 +112,12 @@ def main():
         ],
     )
 
-    agente("¿Qué vino me recomiendas para una cena de mariscos?")
+    print("🤖 Agente: ", end="", flush=True)
+    agente(prompt)
+    print()
 
 
 if __name__ == "__main__":
-    main()
-    print()
+    _after_tool = False
+    prompt = input("👩‍💻 Prompt: ")
+    main(prompt)
