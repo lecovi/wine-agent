@@ -4,6 +4,7 @@ from pathlib import Path
 from strands import Agent, tool
 from strands.models.ollama import OllamaModel
 
+
 #FIXME: En un proyecto real, cargaríamos los vinos desde una base de datos o API, no desde un archivo JSON local. Esto es solo para fines de demostración.
 VINOS = json.loads(Path("data/vinos.json").read_text())
 
@@ -45,6 +46,7 @@ def buscar_vinos(
         return "No encontré vinos con esos criterios. Intenta con otra región o cepa."
     return json.dumps(resultados[:5], ensure_ascii=False, indent=2)
 
+
 def main():
     modelo = OllamaModel(
         host="http://localhost:11434",
@@ -59,7 +61,10 @@ def main():
         ],
     )
 
-    agente("¿Qué vino me recomiendas para una cena de mariscos?")
+    print(f"👩‍💻 Prompt: {PREGUNTA}\n")
+    print("🤖 Agente: ", end="", flush=True)
+    agente(prompt)
+    print()
 
 
 if __name__ == "__main__":
