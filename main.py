@@ -4,6 +4,7 @@ from pathlib import Path
 from strands import Agent, tool
 from strands.models.ollama import OllamaModel
 
+
 #FIXME: En un proyecto real, cargaríamos los vinos desde una base de datos o API, no desde un archivo JSON local. Esto es solo para fines de demostración.
 VINOS = json.loads(Path("data/vinos.json").read_text())
 
@@ -15,6 +16,8 @@ Tu rol:
 2. Explicar brevemente por qué recomiendas cada vino.
 3. Responder siempre en español.
 4. Mantener las respuestas concisas — máximo 2-3 párrafos.
+5. Si el usuario no proporciona suficiente información, haz preguntas para entender mejor sus gustos y necesidades.
+6. Si el usuario pide recomendaciones de otra cosa que no sean vinos, responde que solo puedes ayudar con recomendaciones de vinos y haz preguntas para redirigir la conversación hacia ese tema.
 """
 
 @tool
@@ -40,7 +43,28 @@ def buscar_vinos(
         return "No encontré vinos con esos criterios. Intenta con otra región o cepa."
     return json.dumps(resultados[:5], ensure_ascii=False, indent=2)
 
-def main():
+
+def callback_handler(**kwargs):
+    global _after_tool
+    if "reasoningText" in kwargs:
+        print(f"💭 {kwargs['reasoningText']}", end="", flush=True)
+    if "data" in kwargs:
+        if _after_tool:
+            print("\n")
+            _after_tool = False
+        print(kwargs["data"], end="", flush=True)
+    if "current_tool_use" in kwargs:
+        _after_tool = True
+        t = kwargs["current_tool_use"]
+        if t.get("name"):
+            print(f"\n\n🔧 Herramienta: {t['name']}")
+        if t.get("input"):
+            print(f"   Parámetros: {t['input']}")
+
+
+def main(
+    prompt: str = None,
+):
     modelo = OllamaModel(
         host="http://localhost:11434",
         model_id="llama3.1",
@@ -48,15 +72,19 @@ def main():
 
     agente = Agent(
         model=modelo,
+        callback_handler=callback_handler,
         system_prompt=SYSTEM_PROMPT,
         tools=[
             buscar_vinos
         ],
     )
 
-    agente("¿Qué vino me recomiendas para una cena de mariscos?")
+    print("🤖 Agente: ", end="", flush=True)
+    agente(prompt)
+    print()
 
 
 if __name__ == "__main__":
-    main()
-    print()
+    _after_tool = False
+    prompt = input("👩‍💻 Prompt: ")
+    main(prompt)
