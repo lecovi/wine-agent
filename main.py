@@ -3,6 +3,8 @@ from pathlib import Path
 
 from strands import Agent, tool
 from strands.models.ollama import OllamaModel
+from strands.session.file_session_manager import FileSessionManager
+
 
 #FIXME: En un proyecto real, cargaríamos los vinos desde una base de datos o API, no desde un archivo JSON local. Esto es solo para fines de demostración.
 VINOS = json.loads(Path("data/vinos.json").read_text())
@@ -75,6 +77,11 @@ def main():
         model_id="llama3.1",
     )
 
+    session_manager = FileSessionManager(
+        session_id="sommelier",
+        storage_dir=Path.home() / ".wine-agent-sessions",
+    )
+
     agente = Agent(
         model=modelo,
         system_prompt=SYSTEM_PROMPT,
@@ -82,6 +89,7 @@ def main():
             buscar_vinos,
             maridaje,
         ],
+        session_manager=session_manager,
     )
 
     agente("¿Qué vino me recomiendas para una cena de mariscos?")
