@@ -1,6 +1,7 @@
 from strands import Agent
 from strands.models.ollama import OllamaModel
 
+
 PREGUNTA = "¿Qué vino me recomiendas para una cena de mariscos?"
 
 
@@ -14,11 +15,11 @@ def main(
 
     agente = Agent(model=modelo)
 
-    print(f"👩‍💻 Prompt: {PREGUNTA}\n")
     print("🤖 Agente: ", end="", flush=True)
     agente(prompt)
     print()
 
 
 if __name__ == "__main__":
-    main()
+    prompt = input("👩‍💻 Prompt: ")
+    main(prompt)
