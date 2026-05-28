@@ -28,14 +28,16 @@ def buscar_vinos(
         region: str = "",
         cepa: str = ""
     ) -> str:
-    """Busca vinos en el cava de 30 vinos.
+    """Busca vinos en el cava.
     Filtra por región vinícola y/o cepa (tipo de uva).
     Retorna nombre, bodega, región, cepa y notas de cata.
     Usa esta herramienta siempre que el usuario pregunte por un vino específico.
 
     Args:
-        region: Región vinícola para filtrar (ej: Valle del Maipo, Valle de Casablanca). Dejar vacío para no filtrar.
-        cepa: Tipo de uva para filtrar (ej: Carménère, Sauvignon Blanc). Dejar vacío para no filtrar.
+        region: Región vinícola para filtrar (ej: Cafayate, Lujan de Cuyo). Dejar vacío
+        para no filtrar.
+        cepa: Tipo de uva para filtrar (ej: Malbec, Torrontés). Dejar vacío para no
+        filtrar.
     """
     resultados = [
         v for v in VINOS
@@ -47,7 +49,7 @@ def buscar_vinos(
     return json.dumps(resultados[:5], ensure_ascii=False, indent=2)
 
 
-def main():
+def main(prompt: str):
     modelo = OllamaModel(
         host="http://localhost:11434",
         model_id="llama3.1",
@@ -57,16 +59,16 @@ def main():
         model=modelo,
         system_prompt=SYSTEM_PROMPT,
         tools=[
-            buscar_vinos
+            buscar_vinos,
         ],
     )
 
-    print(f"👩‍💻 Prompt: {PREGUNTA}\n")
     print("🤖 Agente: ", end="", flush=True)
     agente(prompt)
     print()
 
 
 if __name__ == "__main__":
-    main()
+    prompt = input("👩‍💻 Prompt: ")
+    main(prompt)
     print()
