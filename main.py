@@ -11,21 +11,20 @@ VINOS = json.loads(Path("data/vinos.json").read_text())
 
 #FIXME: En un proyecto real, esta información podría ser más detallada y estar almacenada en una base de datos o sistema de conocimiento, no en un diccionario estático. Esto es solo para fines de demostración.
 MARIDAJES = {
-        "mariscos": "Sauvignon Blanc, Chardonnay sin roble, o un Pinot Noir ligero.",
-        "pescado": "Sauvignon Blanc, Riesling, o Chardonnay.",
-        "asado": "Cabernet Sauvignon, Carménère, o Malbec.",
-        "carnes rojas": "Cabernet Sauvignon, Carménère, Syrah, o blends tintos.",
-        "cerdo": "Pinot Noir, Merlot, o Carménère.",
-        "pollo": "Chardonnay, Pinot Noir, o Viognier.",
-        "pasta": "Depende de la salsa: tomate → Carménère; crema → Chardonnay; pesto → Sauvignon Blanc.",
-        "queso": "Tintos maduros para quesos duros; Sauvignon Blanc para queso de cabra.",
-        "ensalada": "Sauvignon Blanc o Riesling.",
-        "chocolate": "Carménère, Syrah, o un blend tinto con notas de fruta madura.",
-    }
+    "mariscos": "sauvignon blanc, o riesling",
+    "pescado": "chardonnay, albariño, o semillón",
+    "asado": "malbec, cabernet franc, o sangiovese",
+    "carne roja": "blend, bonarda, o cabernet sauvignon",
+    "cerdo": "pinot noir, criolla, o merlot",
+    "pollo": "chardonnay, viognier, o semillón",
+    "queso": "torrontés, px, palomino, etc, o verdejo",
+    "ensalada": "riesling, o isabella",
+    "chocolate": "malbec, o torrontés"
+}
 
 SYSTEM_PROMPT = """
 Eres un sommelier experto en vinos.
-El usuario tiene una cava con 30 vinos.
+El usuario tiene una cava con vinos.
 
 Tu rol:
 1. Recomendar vinos según la ocasión, comida o preferencia del usuario.
@@ -52,8 +51,10 @@ def buscar_vinos(
     Usa esta herramienta siempre que el usuario pregunte por un vino específico.
 
     Args:
-        region: Región vinícola para filtrar (ej: Valle del Maipo, Valle de Casablanca). Dejar vacío para no filtrar.
-        cepa: Tipo de uva para filtrar (ej: Carménère, Sauvignon Blanc). Dejar vacío para no filtrar.
+        region: Región vinícola para filtrar (ej: Cafayate, Luján de cuyo). Dejar vacío
+        para no filtrar.
+        cepa: Tipo de uva para filtrar (ej: Malbec, Torrontés). Dejar vacío para no 
+        filtrar.
     """
     resultados = [
         v for v in VINOS
@@ -76,7 +77,7 @@ def maridaje(plato: str, maridajes: dict = MARIDAJES) -> str:
     for clave, sugerencia in maridajes.items():
         if clave in plato_lower:
             return sugerencia
-    return f"Para '{plato}', prueba un tinto medio como Carménère o un blanco fresco como Sauvignon Blanc."
+    return f"Para '{plato}', prueba un tinto medio como Malbec o un blanco fresco como Riesling."
 
 
 def callback_handler(**kwargs):
