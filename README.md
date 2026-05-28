@@ -1,4 +1,4 @@
-# Wine Agent — FLISOL CABA 2026
+# Wine Agent — Crecimiento & FLISOL CABA 2026
 
 Companion repo para la charla ["¿Este prompt tiene notas de roble? Creando agentes de IA para catar bebidas"](https://eventol.flisol.org.ar/events/flisol-caba-2026/activity/804/) en el **FLISOL CABA 2026**.
 

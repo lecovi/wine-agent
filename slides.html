@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Este prompt tiene notas de roble?</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Space+Mono&display=swap');
+        
+        body { 
+            margin: 0; 
+            font-family: 'Space Mono', monospace; 
+            background: #f0f0f0; 
+            color: #333; 
+            overflow: hidden; 
+        }
+        .slide { 
+            width: 100vw; height: 100vh; 
+            display: none; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            padding: 50px; 
+            box-sizing: border-box; 
+            text-align: center; 
+        }
+        .slide.active { display: flex; }
+        
+        h1 { font-family: 'Comic Neue', cursive; font-size: 4em; color: #ff4500; margin-bottom: 10px; }
+        h2 { font-size: 2em; color: #444; }
+        
+        img { max-width: 600px; max-height: 400px; border-radius: 15px; border: 5px solid #333; margin: 20px 0; }
+        
+        .meme-caption { font-style: italic; font-size: 1.2em; color: #555; }
+        .code { background: #111; padding: 20px; border-radius: 8px; font-family: monospace; text-align: left; color: #7cfc00; }
+        .slide-footer { 
+            position: absolute; bottom: 20px; right: 40px; 
+            color: #999; font-size: 1.2em; font-family: 'Space Mono', monospace;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slide active">
+    <h1>¿Este prompt tiene notas de roble?</h1>
+    <img src="assets/Crecimiento-CABA-2026_Agente-Sommelier.png" alt="Portada de la charla" style="border: none; max-height: 450px;">
+    <div style="background: white; padding: 15px; border-radius: 10px; margin-top: 20px;">
+        <p style="font-size: 1.2em; margin: 0;">Escanea para seguir los slides:</p>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://leo.bitson.group/crecimiento-2026-sommelier-ia.html" alt="QR" style="width: 100px; height: 100px; border: none; margin: 10px 0;">
+        <p style="font-size: 1em; margin: 0;">leo.bitson.group/crecimiento-2026-sommelier-ia.html</p>
+    </div>
+</div>
+
+<div class="slide">
+    <h1>Disclaimer: ¿Estás listo?</h1>
+    <p>Para aprovechar esta charla necesitas conocer:</p>
+    <ul style="display: inline-block; text-align: left;">
+        <li>🐍 Python (saber dónde va el print)</li>
+        <li>⌨️ Terminal/CLI (no tenerle miedo al prompt)</li>
+        <li>🔗 Git & GitHub (saber qué es un branch)</li>
+    </ul>
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJ4ZzVqbm92eG54eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/12XMGIWtrHBl5e/giphy.gif" alt="The Office Disclaimer">
+    <p class="meme-caption">Michael Scott: "I'm not superstitious, but I am a little stitious."</p>
+</div>
+
+<div class="slide">
+    <h1>Install Ollama</h1>
+    <p><a href="https://ollama.com/download" target="_blank">ollama.com/download</a></p>
+    <img src="assets/install-ollama.png" alt="Ollama Install" style="max-width: 500px;">
+    <div class="code">
+        ollama pull llama3.1
+    </div>
+    <p class="meme-caption" style="color: #ff4500;">⚠️ Son ~4.7GB, ¡no lo hagas en el Wi-Fi del evento!</p>
+</div>
+
+<div class="slide">
+    <h1>¿Quién soy?</h1>
+    <p><b>lecovi (a.k.a. Leandro E. Colombo Viña)</b></p>
+    <div style="font-size: 3em; margin: 20px 0;">🍷 + 🤖</div>
+    <ul style="display: inline-block; text-align: left; font-size: 1.2em;">
+        <li>🏅 Python Software Foundation Fellow</li>
+        <li>🇦🇷 Presidente Asociación Civil Python Argentina</li>
+        <li>🎙️ Host & Jury @ Nerdear.la</li>
+        <li>🛒 Sr. Software Development Manager @ MELI</li>
+    </ul>
+    <p>Me encontrás en todas las redes como <b>@lecovi</b></p>
+</div>
+
+<div class="slide">
+    <h1>Intro</h1>
+    <p>¿Qué es lo que realmente estamos construyendo?</p>
+    <img src="assets/futurama-meme.jpg" alt="Intro Futurama" style="max-width: 600px;">
+    <p class="meme-caption">De un prompt curioso a un sommelier digital.</p>
+</div>
+
+<div class="slide" id="slide-modelo">
+    <h2>Agente vs. Modelo: El Modelo</h2>
+    <div style="display: flex; justify-content: center; width: 100%;">
+        <div>
+            <p><b>El Modelo</b></p>
+            <img src="assets/zoolander.gif" alt="Zoolander" style="max-width: 400px;">
+            <p style="font-size: 1.2em;">"Blue Steel": Se ve increíble, pero no resuelve nada.</p>
+        </div>
+    </div>
+</div>
+
+<div class="slide">
+    <h2>¿Qué es el "Razonamiento"?</h2>
+    <p>No es magia, son herramientas.</p>
+    <img src="assets/The_Square_Hole.jpg" alt="Square Hole meme" style="max-width: 600px;">
+    <p class="meme-caption">Si solo tienes un martillo (LLM), todo parece un clavo. <br>¡Dale más herramientas!</p>
+</div>
+
+<div class="slide" id="slide-agente">
+    <h2>Agente vs. Modelo: El Agente</h2>
+    <div style="display: flex; justify-content: center; width: 100%;">
+        <div>
+            <p><b>El Agente</b></p>
+            <img src="assets/agent86.gif" alt="Superagente 86" style="max-width: 400px;">
+            <p style="font-size: 1.2em;">"Control": Analiza, decide, actúa (¡y habla por un zapato!).</p>
+        </div>
+    </div>
+</div>
+
+<div class="slide">
+    <h2>El Agent Loop</h2>
+    <p>El ciclo infinito de la desesperación (o éxito).</p>
+    <img src="assets/agent-loop.jpg" alt="Agent Loop" style="max-width: 600px;">
+    <p class="meme-caption">Observar → Pensar → Actuar → Repetir hasta que el vino esté bueno.</p>
+</div>
+
+<div class="slide">
+    <h2>El Agent Loop (Visualizado)</h2>
+    <img src="assets/carbon-agent-loop.png" alt="Agent Loop Code" style="max-width: 800px; border: 2px solid #333;">
+    <p class="meme-caption">Así es como el código "entiende" lo que tiene que hacer.</p>
+</div>
+
+<div class="slide">
+    <h2>¿Qué es un Agente de IA?</h2>
+    <p>No es solo un Chatbot.</p>
+    <img src="assets/Buff-Doge-vs-Cheems.png" alt="Buff Doge vs Cheems" style="max-width: 600px;">
+    <p class="meme-caption">Chatbot normal vs Agente con herramientas.</p>
+</div>
+
+<div class="slide">
+    <h2>El Stack Tecnológico</h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px;">
+        <div style="text-align: center;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" style="width: 100px; height: 100px; border: none;">
+            <p>Python</p>
+        </div>
+        <span style="font-size: 3em; color: #ff4500;">+</span>
+        <div style="text-align: center;">
+            <img src="https://ollama.com/public/ollama.png" alt="Ollama" style="width: 100px; height: 100px; border: none;">
+            <p>Ollama</p>
+        </div>
+        <span style="font-size: 3em; color: #ff4500;">+</span>
+        <div style="text-align: center;">
+            <img src="https://raw.githubusercontent.com/strands-agents/docs/main/site/public/latest/assets/logo-github.svg" alt="Strands" style="width: 100px; height: 100px; border: none;">
+            <p>Strands SDK</p>
+        </div>
+        <span style="font-size: 3em; color: #ff4500;">+</span>
+        <div style="text-align: center;">
+            <img src="https://cdn-icons-png.flaticon.com/512/3063/3063821.png" alt="Notebook" style="width: 100px; height: 100px; border: none;">
+            <p>100% Local</p>
+        </div>
+    </div>
+</div>
+
+<div class="slide">
+    <h1>¡Manos a la obra!</h1>
+    <img src="assets/cat-type.gif" alt="Coding Cat" style="max-width: 600px;">
+    <p class="meme-caption">Es hora de ensuciarse las manos.<br><code>git clone https://github.com/lecovi/wine-agent.git</code></p>
+    <div style="background: white; padding: 15px; border-radius: 10px; margin-top: 20px;">
+        <p style="font-size: 1.2em; margin: 0;">Escanea para ir al repo:</p>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/lecovi/wine-agent.git" alt="QR" style="width: 100px; height: 100px; border: none; margin: 10px 0;">
+        <p style="font-size: 1em; margin: 0;">github.com/lecovi/wine-agent.git</p>
+    </div>
+</div>
+
+<div class="slide">
+    <h2>1. El Agente Base</h2>
+    <p>Iniciando el ciclo...</p>
+    <img src="assets/carbon-wine-agent-step-01.png" alt="Step 01 Code" style="max-width: 800px; border: 2px solid #333;">
+    <p class="meme-caption"><code>uv run main.py</code></p>
+</div>
+
+<div class="slide">
+    <h2>1. El Agente Base (En ejecución)</h2>
+    <p>¡Mirá cómo catamos!</p>
+    <video width="600" controls autoplay loop muted>
+        <source src="assets/wine-agent-step-01.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <p class="meme-caption">El agente en acción.</p>
+</div>
+
+<div class="slide">
+    <h2>1b. Agregando Input</h2>
+    <p>Hagámoslo interactivo.</p>
+    <img src="assets/carbon-wine-agent-step-01b-input.png" alt="Step 01b Code" style="max-width: 800px; border: 2px solid #333;">
+    <p class="meme-caption"><code>git checkout feature/01b-primer-agente</code></p>
+</div>
+
+<div class="slide">
+    <h2>1b. Agregando Input (En ejecución)</h2>
+    <p>¡Ahora responde a tus preguntas!</p>
+    <video width="600" controls autoplay loop muted>
+        <source src="assets/wine-agent-step-01b.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <p class="meme-caption">Interactuando con el agente.</p>
+</div>
+
+<div class="slide">
+    <h2>1b. ¿El agente sabe de todo?</h2>
+    <p>¡Oops! Responde cosas que no debería.</p>
+    <img src="assets/wine-agent-step-01b-fail.png" alt="Step 01b Fail" style="max-width: 800px; border: 2px solid #333;">
+    <p class="meme-caption">Necesitamos "Guardrails" para que no se desvíe del tema.</p>
+</div>
+
+<div class="slide">
+    <h2>2. Dándole alma (System Prompt)</h2>
+    <p>El sommelier toma forma.</p>
+    <img src="assets/carbon-wine-agent-step-02.png" alt="Step 02 Code" style="max-width: 800px; border: 2px solid #333;">
+    <p class="meme-caption"><code>git checkout feature/02-system-prompt</code></p>
+</div>
+
+<div class="slide">
+    <h2>2. Guardrails en acción</h2>
+    <p>Ahora sí, respeta el tema.</p>
+    <img src="assets/carbon-wine-agent-step-02-guardrails.png" alt="Step 02 Guardrails" style="max-width: 800px; border: 2px solid #333;">
+    <p class="meme-caption">¡Chau preguntas fuera de contexto!</p>
+</div>
+
+<div class="slide">
+    <h2>3. Preparando la base de datos</h2>
+    <p>Para que el agente sepa de vinos, necesita datos.</p>
+    <div class="code">
+        mkdir -p data<br>
+        curl -o data/vinos.json https://raw.githubusercontent.com/lecovi/wine-agent/refs/heads/feature/03-herramientas/data/vinos.json
+    </div>
+    <p class="meme-caption">Sin datos, no hay cata. 🍷</p>
+</div>
+
+<div class="slide">
+    <h2>3. Conectando datos (@tool)</h2>
+    <p>El agente consulta el catálogo.</p>
+    <img src="assets/carbon-wine-agent-step-03-tools.png" alt="Step 03 Code" style="max-width: 800px; border: 2px solid #333;">
+    <p class="meme-caption"><code>git checkout feature/03-herramientas</code></p>
+</div>
+
+<div class="slide">
+    <h2>3. Conectando datos (En ejecución)</h2>
+    <p>¡El agente consulta datos reales!</p>
+    <img src="assets/wine-agent-step-03-tools.png" alt="Step 03 Execution" style="max-width: 800px; border: 2px solid #333;">
+    <p class="meme-caption">Mirá cómo busca el vino ideal.</p>
+</div>
+
+<div class="slide">
+    <h2>4. Más herramientas</h2>
+    <p>El agente ahora tiene más opciones para elegir.</p>
+    <img src="assets/carbon-wine-agent-step-04.png" alt="Step 04 Code" style="max-width: 800px; border: 2px solid #333;">
+    <p class="meme-caption"><code>git checkout feature/04-varias-tools</code></p>
+</div>
+
+<div class="slide">
+    <h2>4. Más herramientas (En ejecución)</h2>
+    <p>El modelo decide qué herramienta usar.</p>
+    <img src="assets/wine-agent-step-04.png" alt="Step 04 Execution" style="max-width: 800px; border: 2px solid #333;">
+    <p class="meme-caption">¡Orquestando herramientas como un pro!</p>
+</div>
+
+<div class="slide">
+    <h2>5. Memoria (Sesiones)</h2>
+    <p>Recordando al cliente.</p>
+    <img src="assets/carbon-wine-agent-step-05.png" alt="Step 05 Code" style="max-width: 800px; border: 2px solid #333;">
+    <p class="meme-caption"><code>git checkout feature/05-memoria</code></p>
+</div>
+
+<div class="slide">
+    <h2>5. Memoria (En ejecución)</h2>
+    <p>Persistencia de mensajes.</p>
+    <img src="assets/wine-agent-step-05.png" alt="Step 05 Execution" style="max-width: 800px; border: 2px solid #333;">
+    <p class="meme-caption">Mirá cómo se guardan las sesiones en disco.</p>
+</div>
+
+<div class="slide">
+    <h2>6. Loop Interactivo</h2>
+    <p>¡Conversá con el sommelier!</p>
+    <img src="assets/carbon-wine-agent-step-06.png" alt="Step 06 Code" style="max-width: 800px; border: 2px solid #333;">
+    <p class="meme-caption"><code>git checkout feature/06-loop</code></p>
+</div>
+
+<div class="slide">
+    <h2>6. Loop Interactivo (En ejecución)</h2>
+    <p>El sommelier toma el control.</p>
+    <img src="assets/wine-agent-step-06.png" alt="Step 06 Execution" style="max-width: 800px; border: 2px solid #333;">
+    <p class="meme-caption">¡Ahora podés charlar todo el día!</p>
+</div>
+
+<div class="slide">
+    <h2>7. Mejoras en el proyecto</h2>
+    <p>Organizando para escalar.</p>
+    <ul style="display: inline-block; text-align: left;">
+        <li>📦 Módulos separados (`tools.py`)</li>
+        <li>📝 System Prompt en `MD`</li>
+        <li>💾 Datos en `JSON` (por ahora)</li>
+    </ul>
+    <img src="assets/carbon-wine-agent-step-07.png" alt="Step 07 Code" style="max-width: 800px; border: 2px solid #333;">
+    <p class="meme-caption">¡Un proyecto limpio es un proyecto feliz!</p>
+</div>
+
+<div class="slide">
+    <h2>8. ¿Y si cambio de modelo?</h2>
+    <p>Probando Gemini o GPT.</p>
+    <img src="assets/carbon-wine-agent-step-08.png" alt="Step 08 Code" style="max-width: 800px; border: 2px solid #333;">
+    <p class="meme-caption"><code>echo 'GOOGLE_API_KEY="YOUR_API_KEY"' > .env</code></p>
+    <p class="meme-caption">Ollama es genial, pero el mundo es grande.</p>
+</div>
+
+<div class="slide">
+    <h2>8. ¿Y si cambio de modelo? (Ejecución)</h2>
+    <p>La misma lógica, distinto motor.</p>
+    <img src="assets/wine-agent-step-08.png" alt="Step 08 Execution" style="max-width: 800px; border: 2px solid #333;">
+    <p class="meme-caption">¡Poder de orquestación agnóstico al modelo!</p>
+</div>
+
+<div class="slide">
+    <h2>Bonus: Explorando ADK</h2>
+    <p>¿Querés probar otro framework?</p>
+    <img src="assets/spiderman-meme.png" alt="Spiderman Meme" style="max-width: 600px;">
+    <p class="meme-caption">Los conceptos son universales. ¡Explorá el repo!</p>
+</div>
+
+<div class="slide">
+    <h2>¡Muchas gracias!</h2>
+    <img src="assets/keanu-thanks.gif" alt="Keanu Thanks" style="max-width: 600px;">
+    <p class="meme-caption">¿Preguntas? ¿Dudas? ¿Vino?</p>
+    <div class="meme-caption"><code>github.com/lecovi/wine-agent</code></div>
+</div>
+
+<div id="counter" class="slide-footer">0</div>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const counter = document.getElementById('counter');
+
+    function updateCounter() {
+        counter.innerText = currentSlide;
+        // Update URL hash for easy navigation
+        history.replaceState(null, null, '#' + currentSlide);
+    }
+
+    function goToSlide(n) {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = Math.max(0, Math.min(n, slides.length - 1));
+        slides[currentSlide].classList.add('active');
+        updateCounter();
+    }
+
+    // Load slide from URL hash on start
+    window.onload = () => {
+        const hash = window.location.hash.substring(1);
+        if (hash) goToSlide(parseInt(hash));
+    };
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
+            goToSlide(currentSlide + 1);
+        } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+            goToSlide(currentSlide - 1);
+        }
+    });
+</script>
+</body>
+</html>
