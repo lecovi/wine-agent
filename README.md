@@ -12,7 +12,7 @@ Cada branch es un paso incremental. Empezá por el 1 y seguí en orden.
 
 | # | Branch | Concepto |
 |---|--------|----------|
-| 1 | [`feature/01-primer-agente`](https://github.com/lecovi/wine-agent/tree/feature/01-primer-agente) | El agente más básico — modelo + loop |
+| 1 | [`main`](https://github.com/lecovi/wine-agent/tree/main) | El agente más básico — modelo + loop |
 | 2 | [`feature/01b-primer-agente`](https://github.com/lecovi/wine-agent/tree/feature/01b-primer-agente) | Agente interactivo — aceptá prompts del usuario |
 | 3 | [`feature/02-system-prompt`](https://github.com/lecovi/wine-agent/tree/feature/02-system-prompt) | Personalidad del agente con system prompt |
 | 4 | [`feature/03-herramientas`](https://github.com/lecovi/wine-agent/tree/feature/03-herramientas) | Tu primera herramienta (`@tool`) |
@@ -20,9 +20,11 @@ Cada branch es un paso incremental. Empezá por el 1 y seguí en orden.
 | 6 | [`feature/04-varias-tools`](https://github.com/lecovi/wine-agent/tree/feature/04-varias-tools) | Múltiples herramientas — decisión del modelo |
 | 7 | [`feature/05-memoria`](https://github.com/lecovi/wine-agent/tree/feature/05-memoria) | Sesiones para que recuerde entre ejecuciones |
 | 8 | [`feature/06-loop`](https://github.com/lecovi/wine-agent/tree/feature/06-loop) | Loop interactivo — conversá con el agente |
+| 9 | [`feature/07-mejoras`](https://github.com/lecovi/wine-agent/tree/feature/07-mejoras) | Mejorando el proyecto Python |
+| 10 | [`feature/08-modelos`](https://github.com/lecovi/wine-agent/tree/feature/08-modelos) | Cambiando al modelo de la nube |
 
 ```
-git checkout feature/01-primer-agente
+git switch feature/01b-primer-agente
 ```
 
 ---
@@ -32,7 +34,8 @@ git checkout feature/01-primer-agente
 ### Requisitos
 
 - Python 3.10+
-- [Ollama](https://ollama.ai/)
+- [uv](https://docs.astral.sh/uv/getting-started/installation/) para manejar deps y entornos virtuales
+- [Ollama](https://ollama.com/download)
 
 ### Instalación
 
@@ -49,7 +52,7 @@ uv sync
 ```bash
 mkdir -p data
 curl -o data/vinos.json \
-  https://raw.githubusercontent.com/anacunha/strands-agents-wine-agent-sample/main/data/vinos.json
+  https://raw.githubusercontent.com/lecovi/wine-agent/refs/heads/feature/03-herramientas/data/vinos.json
 ```
 
 ### Ejecutar
@@ -64,9 +67,10 @@ uv run main.py
 
 ```
 [Paso 1-2] Modelo + Prompt → Agente con personalidad
-[Paso 3-4] Agente + @tool → Consulta datos reales
-[Paso 5-6] Múltiples tools → El modelo decide cuáles usar
-[Paso 7-8] Session Manager → Memoria + interfaz interactiva
+[Paso 3-4] Agente + @tool → Consulta datos reales, el modelo decide que tool usar
+[Paso 5-6] Session Manager + Loop → Memoria + interfaz interactiva 
+[Paso 7-8] Mejoras + Modelos → Código más limpio y cambio de modelo sin drama
+[Bonus] Explorá el repo que podés ver cómo hacer lo mismo con ADK (Google)
 ```
 
 ---
@@ -74,9 +78,11 @@ uv run main.py
 ## Recursos
 
 - [Strands Agents SDK](https://github.com/strands-agents/sdk-python)
-- [Strands Agents Docs](https://strandsagents.com/)
-- [Ollama](https://ollama.ai/)
+  - [Strands Agents Docs](https://strandsagents.com/)
+- [Ollama](https://ollama.com/download)
 - [Repo original — Nerdear.la Chile 2026](https://github.com/anacunha/strands-agents-wine-agent-sample)
+  - [Video del workshop](https://www.youtube.com/watch?v=jhRdbiwcDGs)
+- [ADK](https://adk.dev/get-started/python/)
 
 ---
 
