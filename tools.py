@@ -12,8 +12,10 @@ def buscar_vinos(
     Usa esta herramienta siempre que el usuario pregunte por un vino específico.
 
     Args:
-        region: Región vinícola para filtrar (ej: Valle del Maipo, Valle de Casablanca). Dejar vacío para no filtrar.
-        cepa: Tipo de uva para filtrar (ej: Carménère, Sauvignon Blanc). Dejar vacío para no filtrar.
+        region: Región vinícola para filtrar (ej: Cafayate, Luján de cuyo). Dejar vacío
+        para no filtrar.
+        cepa: Tipo de uva para filtrar (ej: Malbec, Torrontés). Dejar vacío para no 
+        filtrar.
     """
     resultados = [
         v for v in VINOS
@@ -39,4 +41,4 @@ def maridaje(
     for clave, sugerencia in maridajes.items():
         if clave in plato_lower:
             return sugerencia
-    return f"Para '{plato}', no encontré una recomendación específica. Intenta con otro plato o sé más específico (ej: en lugar de 'pasta', prueba 'pasta con salsa de tomate')."
+    return f"Para '{plato}', prueba un tinto medio como Malbec o un blanco fresco como Riesling."
