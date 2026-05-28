@@ -45,9 +45,9 @@
     <h1>¿Este prompt tiene notas de roble?</h1>
     <img src="assets/Crecimiento-CABA-2026_Agente-Sommelier.png" alt="Portada de la charla" style="border: none; max-height: 450px;">
     <div style="background: white; padding: 15px; border-radius: 10px; margin-top: 20px;">
-        <p style="font-size: 1.2em; margin: 0;">Escanea para seguir los slides:</p>
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://leo.bitson.group/crecimiento-2026-sommelier-ia.html" alt="QR" style="width: 100px; height: 100px; border: none; margin: 10px 0;">
-        <p style="font-size: 1em; margin: 0;">leo.bitson.group/crecimiento-2026-sommelier-ia.html</p>
+        <p style="font-size: 1em; margin: 0;">Escanea para seguir los slides:</p>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://leo.bitson.group/crecimiento-2026-sommelier-ia.html" alt="QR" style="width: 80px; height: 80px; border: none; margin: 5px 0;">
+        <p style="font-size: 0.8em; margin: 0;">leo.bitson.group/crecimiento-2026-sommelier-ia.html</p>
     </div>
 </div>
 
@@ -172,9 +172,9 @@
     <img src="assets/cat-type.gif" alt="Coding Cat" style="max-width: 600px;">
     <p class="meme-caption">Es hora de ensuciarse las manos.<br><code>git clone https://github.com/lecovi/wine-agent.git</code></p>
     <div style="background: white; padding: 15px; border-radius: 10px; margin-top: 20px;">
-        <p style="font-size: 1.2em; margin: 0;">Escanea para ir al repo:</p>
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/lecovi/wine-agent.git" alt="QR" style="width: 100px; height: 100px; border: none; margin: 10px 0;">
-        <p style="font-size: 1em; margin: 0;">github.com/lecovi/wine-agent.git</p>
+        <p style="font-size: 1em; margin: 0;">Escanea para ir al repo:</p>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/lecovi/wine-agent.git" alt="QR" style="width: 100px; height: 100px; border: none; margin: 5px 0;">
+        <p style="font-size: 0.8em; margin: 0;">github.com/lecovi/wine-agent.git</p>
     </div>
 </div>
 
@@ -342,7 +342,7 @@
 
 <div id="counter" class="slide-footer">0</div>
 
-<script>
+    <script>
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
     const counter = document.getElementById('counter');
@@ -367,12 +367,19 @@
     };
 
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
+        // Logitech presentadores suelen usar PageDown/PageUp o teclas N/B
+        if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown' || e.key.toLowerCase() === 'n') {
             goToSlide(currentSlide + 1);
-        } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+        } else if (e.key === 'ArrowLeft' || e.key === 'PageUp' || e.key.toLowerCase() === 'b') {
             goToSlide(currentSlide - 1);
         }
     });
+
+    // Add click event for simple advancement
+    document.addEventListener('click', () => {
+        goToSlide(currentSlide + 1);
+    });
 </script>
+
 </body>
 </html>
