@@ -1,12 +1,15 @@
 import json
+import os
 from pathlib import Path
 
+from dotenv import load_dotenv
 from strands import Agent
-from strands.models.ollama import OllamaModel
+from strands.models.gemini import GeminiModel
 from strands.session.file_session_manager import FileSessionManager
 
 from tools import buscar_vinos, maridaje
 
+load_dotenv()  # Carga las variables de entorno desde el archivo .env
 
 #FIXME: En un proyecto real, cargaríamos los vinos desde una base de datos o 
 # API, no desde un archivo JSON local. Esto es solo para fines de demostración.
@@ -41,9 +44,8 @@ def callback_handler(**kwargs):
 def main(
     prompt: str = None,
 ):
-    modelo = OllamaModel(
-        host="http://localhost:11434",
-        model_id="llama3.1",
+    modelo = GeminiModel(
+        model_id="gemini-3.1-flash-lite",
     )
 
     session_manager = FileSessionManager(

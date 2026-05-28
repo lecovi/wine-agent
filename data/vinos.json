@@ -2,56 +2,56 @@
   {
     "nombre": "costa & pampa sauvignon blanc",
     "bodega": "trapiche",
-    "cepa": "100% sauvignon blanc",
+    "cepa": "sauvignon blanc",
     "region": "chapadmalal, buenos aires",
     "notas": "hierbas, ruda, cítricos, marcado perfil salino y mineral"
   },
   {
     "nombre": "rutini riesling",
     "bodega": "rutini wines",
-    "cepa": "100% riesling",
+    "cepa": "riesling",
     "region": "valle de uco, mendoza",
     "notas": "notas cítricas, manzana verde, miel, azahares, acidez punzante, mineral y floral"
   },
   {
     "nombre": "fósil",
     "bodega": "zuccardi valle de uco",
-    "cepa": "100% chardonnay",
+    "cepa": "chardonnay",
     "region": "san pablo, tunuyán, mendoza",
     "notas": "fruta blanca ácida, flores blancas, gran tensión, textura calcárea y final salino, no posee paso por madera"
   },
   {
     "nombre": "costa & pampa albariño",
     "bodega": "trapiche",
-    "cepa": "100% albariño",
+    "cepa": "albariño",
     "region": "chapadmalal, buenos aires",
     "notas": "damasco, durazno blanco, notas florales, con final  mineral-salino"
   },
   {
     "nombre": "credo semillón",
     "bodega": "escala humana",
-    "cepa": "100% semillón",
+    "cepa": "semillón",
     "region": "el peral, tupungato, mendoza",
     "notas": "fruta blanca madura, hierbas, notas de frutos secos, elegante y untuoso"
   },
   {
     "nombre": "gran malbec argentino",
     "bodega": "catena zapata",
-    "cepa": "100% malbec",
+    "cepa": "malbec",
     "region": "san carlos y maipú, mendoza",
     "notas": "frutos negros maduros, chocolate,tabaco, vainilla, notas de barrica por sus 24 meses de paso por madera"
   },
   {
     "nombre": "casa boher cabernet franc",
     "bodega": "rosell boher",
-    "cepa": "100% cabernet franc",
+    "cepa": "cabernet franc",
     "region": "vista flores, mendoza",
     "notas": "fruta roja madura, notas de pimienta negra, eucalipto, vainilla y café por su crianza"
   },
   {
     "nombre": "escorihuela gascón sangiovese",
     "bodega": "escorihuela gascón",
-    "cepa": "100% sangiovese",
+    "cepa": "sangiovese",
     "region": "agrelo, luján de cuyo, mendoza",
     "notas": "frutas silvestres como grosellas y frambuesas, nhierbas secas, acidez marcada, taninos firmes y un final ligero"
   },
@@ -65,21 +65,21 @@
   {
     "nombre": "nieto senetiner patrimonial bonarda",
     "bodega": "nieto senetiner",
-    "cepa": "100% bonarda",
+    "cepa": "bonarda",
     "region": "luján de cuyo, mendoza",
     "notas": "fruta roja fresca como frambuesa y mora, chocolate y vainilla”"
   },
   {
     "nombre": "piattelli reserva cabernet sauvignon",
     "bodega": "piattelli vineyards",
-    "cepa": "100% cabernet sauvignon",
+    "cepa": "cabernet sauvignon",
     "region": "cafayate, salta",
     "notas": "frutado, cerezas rojas,  notas herbáceas y vainilla aportado por la madera, tanino estructurado y final persistente"
   },
   {
     "nombre": "correntoso pinot noir",
     "bodega": "malma",
-    "cepa": "100% pinot noir",
+    "cepa": "pinot noir",
     "region": "san patricio del chañar, neuquén, argentina.",
     "notas": "frambuesa, frutilla, guinda, notas de sotobosque y gran frescura"
   },
@@ -93,35 +93,35 @@
   {
     "nombre": "salentein reserva merlot",
     "bodega": "bodegas salentein",
-    "cepa": "100% merlot",
+    "cepa": "merlot",
     "region": "tunuyán, mendoza.",
     "notas": "frutos rojos, membrillos maduros, notas de pimiento dulce, especias, tabaco y vainilla"
   },
   {
     "nombre": "dv catena chardonnay-chardonnay",
     "bodega": "catena zapata",
-    "cepa": "100% chardonnay (blend de viñedos)",
+    "cepa": "chardonnay (blend de viñedos)",
     "region": "luján de cuyo, mendoza.",
     "notas": "fruta tropical como ananá, pera, untuoso por su crianza en madera"
   },
   {
     "nombre": "flores blancas viognier",
     "bodega": "santa julia",
-    "cepa": "100% viognier",
+    "cepa": "viognier",
     "region": "mendoza",
     "notas": "flores blancas, jazmín, manzanilla,  durazno, notas de naranja, fresco y ligero"
   },
   {
     "nombre": "mendel semillon",
     "bodega": "mendel",
-    "cepa": "100% semillon",
+    "cepa": "semillon",
     "region": "paraje altamira, valle de uco, mendoza.",
     "notas": "flores blancas, hierba fresca, cítricos, dejos de frutos secos, boca untuosa, elegante y con buena acidez"
   },
   {
     "nombre": "laborum torrontés de otoño",
     "bodega": "el porvenir de cafayate",
-    "cepa": "100% torrontés",
+    "cepa": "torrontés",
     "region": "cafayate, salta",
     "notas": "pasa de uva, miel, flores blancas, dulce pero con acidez equilibrada"
   },
@@ -135,42 +135,42 @@
   {
     "nombre": "polígonos san pablo verdejo",
     "bodega": "zuccardi",
-    "cepa": "100% verdejo",
+    "cepa": "verdejo",
     "region": "san pablo, valle de uco, mendoza.",
     "notas": "notas cítricas intensas, dejos de hierbas aromáticas, fruta blanca, textura de tiza y una acidez vibrante ideal para quesos grasos o de cabra"
   },
   {
     "nombre": "sapo",
     "bodega": "costa",
-    "cepa": "100% riesling",
+    "cepa": "riesling",
     "region": "alto valle, río negro",
     "notas": "manzana verde, notas cítricas, matices minerales y perfil punzante"
   },
   {
     "nombre": "indama rosado de isabella",
     "bodega": "terra camiare",
-    "cepa": "100% isabella",
+    "cepa": "isabella",
     "region": "colonia caroya, córdoba.",
     "notas": "regalíz, fresas y  frambuesa fresca, notas florales típicas de la variedad"
   },
   {
     "nombre": "malamado malbec",
     "bodega": "zuccardi",
-    "cepa": "100% malbec",
+    "cepa": "malbec",
     "region": "maipú, mendoza",
     "notas": "higos secos, ciruelas pasas, canela y notas tostadas de cacao. vino dulce fortificado"
   },
   {
     "nombre": "laborum malbec tardío",
     "bodega": "el porvenir de cafayate",
-    "cepa": "100% malbec",
+    "cepa": "malbec",
     "region": "cafayate, salta.",
     "notas": "fruta roja y negra madura, higos secos,  canela, chocolate y dulce de leche. vino dulce"
   },
   {
     "nombre": "el esteco tardío torrontés",
     "bodega": "el esteco",
-    "cepa": "100% torrontés",
+    "cepa": "torrontés",
     "region": "cafayate, salta, argentina.",
     "notas": "floral, pasa de uva, miel, ideal para chocolate blanco"
   }
